@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2>Reference</h2>
+                    <p class="card-text">Machine learning can work if there is a set of data. The data in this application is open data from medical science, which contains thousands of symptoms and diseases.</p>
+                </div>
+                <div class="card-footer"><a class="button" href="#!">More Info</a></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">ML Method</h2>
+                    <p class="card-text">There are many machine learning methods that can be used, but only the method with the highest precision will be used as a data training method, so that it can produce the right predictions.</p>
+                </div>
+                <div class="card-footer"><a class="button" href="#!">More Info</a></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">The Hope</h2>
+                    <p class="card-text">Furthermore, the application could help people to detect their illnesses, provide solutions for first aid, and provide suggestions for contacting the nearest hospital</p>
+                </div>
+                <div class="card-footer"><a class="button" href="#!">More Info</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

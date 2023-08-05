@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Predict
+{% endblock %}
+
+{% block main %}
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-12">
+            <h1 class="font-weight-light">Prediction</h1>
+            <script src="/static/js/scripts.js"></script>
+            <script src="/static/js/multiselect-dropdown.js" ></script>
+            <form action="/predict" method="post">
+                <!--label for="fname">Name</label-->
+                <input type="text" id="name" name="name" placeholder="Your name..">
+                <!--label for="sex">Sex</label-->
+                <select name="sex" id="sex">
+                    <option disabled selected>Sex</option>
+                    <option value="M">Male</option>
+                    <option value="M">Female</option>
+                </select>
+                <!--label for="symptoms">Symtoms do you feel?</label-->
+                <br><br>
+                <select name="symptoms" id="symptoms" placeholder="Select symptoms do you feel" multiple multiselect-search="true" multiselect-hide-x="true" multiselect-select-all="true">
+                    <option value="1">Itching (Gatal)</option>
+                    <option value="3">Skin rash (Ruam kulit)</option>
+                    <option value="4">Nodal skin eruptions (Erupsi kulit nodal)</option>
+                    <option value="4">Continuous sneezing (Bersin terus menerus)</option>
+                    <option value="5">Shivering (Gemetaran)</option>
+                    <option value="3">Chills (Panas dingin)</option>
+                    <option value="3">Joint pain (Nyeri sendi)</option>
+                    <option value="5">Stomach pain (Sakit perut)</option>
+                    <option value="3">Acidity (Keasaman)</option>
+                    <option value="4">Ulcers on tongue (Bulkus di lidah)</option>
+                    <option value="3">Muscle wasting (Pengecilan otot)</option>
+                    <option value="5">Vomiting (Muntah)</option>
+                    <option value="6">Burning micturition (Membakar berkemih)</option>
+                    <option value="6">Spotting urination (Bercak buang air kecil)</option>
+                    <option value="4">Fatigue (Kelelahan)</option>
+                    <option value="3">Weight gain (Penambahan berat badan)</option>
+                    <option value="4">Anxiety (Kecemasan)</option>
+                    <option value="5">Cold hands and feets (Tangan dan kaki dingin)</option>
+                    <option value="3">Mood swings (Perubahan suasana hati)</option>
+                    <option value="3">Weight loss (Penurunan berat badan)</option>
+                    <option value="5">Restlessness (Kegelisahan)</option>
+                    <option value="2">Lethargy (Kelesuan)</option>
+                    <option value="6">Patches in throat (Bercak di tenggorokan)</option>
+                    <option value="5">Irregular sugar level (Kadar gula tidak teratur)</option>
+                    <option value="4">Cough (Batuk)</option>
+                    <option value="7">High fever (Demam tinggi)</option>
+                    <option value="3">Sunken eyes (Mata cekung)</option>
+                    <option value="4">Breathlessness (Sesak napas)</option>
+                    <option value="3">Sweating (Berkeringat)</option>
+                    <option value="4">Dehydration (Dehidrasi)</option>
+                    <option value="5">Indigestion (Gangguan pencernaan)</option>
+                    <option value="3">Headache (Sakit kepala)</option>
+                    <option value="3">Yellowish skin (Kulit kekuningan)</option>
+                    <option value="4">Dark urine (Urin gelap)</option>
+                    <option value="5">Nausea (Mual)</option>
+                    <option value="4">Loss of appetite (Kehilangan selera makan)</option>
+                    <option value="4">Pain behind the eyes (Sakit di belakang mata)</option>
+                    <option value="3">Back pain (Sakit punggung)</option>
+                    <option value="4">Constipation (Sembelit)</option>
+                    <option value="4">Abdominal pain (Sakit perut)</option>
+                    <option value="6">Diarrhoea (Diare)</option>
+                    <option value="5">Mild fever (Demam ringan)</option>
+                    <option value="4">Yellow urine (Urine kuning)</option>
+                    <option value="4">Yellowing of eyes (Mata menguning)</option>
+                    <option value="6">Acute liver failure (Gagal hati akut)</option>
+                    <option value="6">Fluid overload (Kelebihan cairan)</option>
+                    <option value="7">Swelling of stomach (Pembengkakan perut)</option>
+                    <option value="6">Swelled lymph nodes (Pembengkakan kelenjar getah bening)</option>
+                    <option value="6">Malaise (Rasa tidak enak)</option>
+                    <option value="5">Blurred and distorted vision (Penglihatan kabur dan terdistorsi)</option>
+                    <option value="5">Phlegm (Dahak)</option>
+                    <option value="4">Throat irritation (Iritasi tenggorokan)</option>
+                    <option value="5">Redness of eyes (Mata kemerahan)</option>
+                    <option value="4">Sinus pressure (Tekanan sinus)</option>
+                    <option value="5">Runny nose (Pilek)</option>
+                    <option value="5">Congestion (Penyumbatan)</option>
+                    <option value="7">Chest pain (Nyeri dada)</option>
+                    <option value="7">Weakness in limbs (Kelemahan pada tungkai)</option>
+                    <option value="5">Fast heart rate (Detak jantung cepat)</option>
+                    <option value="5">Pain during bowel movements (Nyeri saat buang air besar)</option>
+                    <option value="6">Pain in anal region (Nyeri di daerah anus)</option>
+                    <option value="5">Bloody stool (Kotoran berdarah)</option>
+                    <option value="6">Irritation in anus (Iritasi pada anus)</option>
+                    <option value="5">Neck pain (Sakit leher)</option>
+                    <option value="4">Dizziness (Pusing)</option>
+                    <option value="4">Cramps (Kram)</option>
+                    <option value="4">Bruising (Memar)</option>
+                    <option value="4">Obesity (Kegemukan)</option>
+                    <option value="5">Swollen legs (Kaki bengkak)</option>
+                    <option value="5">Swollen blood vessels (Pembengkakan pembuluh darah)</option>
+                    <option value="5">Puffy face and eyes (Wajah dan mata bengkak)</option>
+                    <option value="6">Enlarged thyroid (Pembesaran tiroid)</option>
+                    <option value="5">Brittle nails (Kuku rapuh)</option>
+                    <option value="5">Swollen extremeties (Ekstrim bengkak)</option>
+                    <option value="4">Excessive hunger (Rasa lapar yang berlebihan)</option>
+                    <option value="5">Extra marital contacts (Kontak pernikahan ekstra)</option>
+                    <option value="4">Drying and tingling lips (Bibir kering dan kesemutan)</option>
+                    <option value="4">Slurred speech (Bicara cadel)</option>
+                    <option value="3">Knee pain (Sakit lutut)</option>
+                    <option value="2">Hip joint pain (Nyeri sendi pinggul)</option>
+                    <option value="2">Muscle weakness (Kelemahan otot)</option>
+                    <option value="4">Stiff neck (Leher kaku)</option>
+                    <option value="5">Swelling joints (Sendi bengkak)</option>
+                    <option value="5">Movement stiffness (Kekakuan gerakan)</option>
+                    <option value="6">Spinning movements (Gerakan berputar)</option>
+                    <option value="4">Loss of balance (Kehilangan keseimbangan)</option>
+                    <option value="4">Unsteadiness (Kegoyangan)</option>
+                    <option value="4">Weakness of one body side (Kelemahan satu sisi tubuh)</option>
+                    <option value="3">Loss of smell (Kehilangan bau)</option>
+                    <option value="4">Bladder discomfort (Ketidaknyamanan kandung kemih)</option>
+                    <option value="5">Foul smell of urine (Bau busuk urin)</option>
+                    <option value="6">Continuous feel of urine (Terus menerus merasakan urin)</option>
+                    <option value="5">Passage of gases (Perjalanan gas)</option>
+                    <option value="4">Internal itching (Gatal-gatal dalam)</option>
+                    <option value="5">Toxic look (typhos) (Tampilan beracun - tifus)</option>
+                    <option value="3">Depression (Depresi)</option>
+                    <option value="2">Irritability (Sifat lekas marah)</option>
+                    <option value="2">Muscle pain (Nyeri otot)</option>
+                    <option value="2">Altered sensorium (Sensorium yang diubah)</option>
+                    <option value="3">Red spots over body (Bintik merah di sekujur tubuh)</option>
+                    <option value="4">Belly pain (Sakit perut)</option>
+                    <option value="6">Abnormal menstruation (Menstruasi tidak normal)</option>
+                    <option value="6">Dischromic patches (Patch diskromik)</option>
+                    <option value="4">Watering from eyes (Penyiraman dari mata)</option>
+                    <option value="5">Increased appetite (Meningkatkan nafsu makan)</option>
+                    <option value="4">Polyuria (Poliuria)</option>
+                    <option value="5">Family history (Sejarah keluarga)</option>
+                    <option value="4">Mucoid sputum (dahak mukoid)</option>
+                    <option value="4">Rusty sputum (dahak berkarat)</option>
+                    <option value="3">Lack of concentration (Kurang konsenterasi)</option>
+                    <option value="3">Visual disturbances (Gangguan penglihatan)</option>
+                    <option value="5">Receiving blood transfusion (Menerima transfusi darah)</option>
+                    <option value="2">Receiving unsterile injections (Menerima suntikan yang tidak steril)</option>
+                    <option value="7">Coma (Koma)</option>
+                    <option value="6">Stomach bleeding (perdarahan perut)</option>
+                    <option value="4">Distention of abdomen (Perut buncit)</option>
+                    <option value="5">History of alcohol consumption (Riwayat konsumsi alkohol)</option>
+                    <option value="5">Blood in sputum (Darah dalam dahak)</option>
+                    <option value="6">Prominent veins on calf (Pembuluh darah menonjol di betis)</option>
+                    <option value="4">Palpitations (Palpitasi)</option>
+                    <option value="2">Painful walking (Menyakitkan berjalan)</option>
+                    <option value="2">Pus filled pimples (jerawat berisi nanah)</option>
+                    <option value="2">Blackheads (Komedo)</option>
+                    <option value="2">Scurring (Scurring)</option>
+                    <option value="3">Skin peeling (Kulit terkelupas)</option>
+                    <option value="2">Silver like dusting (Perak seperti debu)</option>
+                    <option value="2">Small dents in nails (Penyok kecil di kuku)</option>
+                    <option value="2">Inflammatory nails (Peradangan kuku)</option>
+                    <option value="4">Blister (Lepuh)</option>
+                    <option value="2">Red sore around nose (Luka merah di sekitar hidung)</option>
+                    <option value="3">Yellow crust ooze (Cairan kerak kuning)</option>
+                    <option value="5">Prognosis (Prognosa)</option>
+                </select>
+                <br><br>
+                <button class="btn btn-primary" type="submit">Predict Desease</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
